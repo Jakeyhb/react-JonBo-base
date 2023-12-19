@@ -9,6 +9,7 @@ const App = () => {
     const [itemsPerRow, setItemsPerRow] = useState(1);
     const listRef = useRef();
     const listRef2 = useRef();
+    console.log(12)
 
 const scrollToSpecificItem = () => {
     if (listRef.current) {
