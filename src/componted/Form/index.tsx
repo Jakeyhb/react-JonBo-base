@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Input, Select, Button, Row, Col, Cascader } from 'antd';
+import { Form, Input, Select, Button, Row, Col, Cascader, message } from 'antd';
 import { FormItemConfig } from './types';
 
 interface Props {
@@ -51,10 +51,13 @@ const CustomForm: React.FC<Props> = ({ config, onSubmit }) => {
     };
 
     return (
-        <Form form={form} onFinish={onSubmit} layout="vertical">
+        <Form form={form} onFinish={onSubmit} layout="horizontal" onFinishFailed={(errorInfo) => {
+            console.error('表单校验失败:', errorInfo);
+            message.error('表单填写有误，请检查后再次提交。');
+        }}>
             <Row gutter={16}>
                 {config.map((item, index) => (
-                    <Col key={index} span={12}>
+                    <Col key={index} xs={24} sm={24} md={12} lg={12} xl={12}>
                         <Form.Item
                             label={item.label}
                             name={item.name}
