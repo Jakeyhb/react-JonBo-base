@@ -2,9 +2,11 @@
 import React, { useRef, useState } from 'react';
 
 import VirtualList from './componted/virtualList/VirtualScroll';
+import SamplePagedef from "./componted/virtualList/SamplePagedemo.tsx";
 
 import FixedSize from './componted/virtualList/ceshiScorll';
 import CustomForm from "./componted/Form";
+// import SamplePage from "./componted/jiugongge/demo.tsx";
 const App = () => {
     const [data, setData] = useState(Array.from({ length: 100 }, (_, index) => `Item ${index + 1}`));
     const [itemsPerRow, setItemsPerRow] = useState(1);
@@ -87,6 +89,14 @@ const scrollToSpecificItem = () => {
 
                 <CustomForm config={formConfig} onSubmit={handleSubmit} />;
 
+            </div>
+            <div>
+                <span>------------------------------------------------</span>
+                {/*<SamplePage></SamplePage>*/}
+            </div>
+            <div>
+                <span>------------------------------------------------</span>
+                <SamplePagedef></SamplePagedef>
             </div>
         </>
     );

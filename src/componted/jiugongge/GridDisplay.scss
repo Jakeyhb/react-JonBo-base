@@ -1,0 +1,46 @@
+// GridDisplay.scss
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; // 为元素之间提供一些间隙
+}
+
+.grid-row {
+  display: flex; // 让行内的元素水平排列
+  justify-content: flex-start; // 从行的开始位置排列元素
+  align-items: stretch; // 元素垂直方向拉伸以填满行高
+
+  > div {
+    flex: 1; // 让每个元素在行中平均分配空间
+    margin: 5px; // 每个元素周围的空间
+    // 可以根据需要添加更多样式，如边框、背景等
+  }
+}
+.grid-item {
+  // 九宫格样式，高度大于宽度
+  flex-basis: calc(33.333% - 10px); // 示例，根据需要调整
+}
+
+.list-item {
+  // 列表样式，宽度占满，高度较小
+  flex-basis: 100%;
+}
+
+// 响应式设计
+@media (max-width: 600px) {
+  .grid-row > div {
+    flex-basis: calc(50% - 10px); // 移动端时每行两个元素
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .grid-row > div {
+    flex-basis: calc(33.333% - 10px); // 平板端时每行三个元素
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid-row > div {
+    flex-basis: calc(25% - 10px); // 桌面端时每行四个元素
+  }
+}
